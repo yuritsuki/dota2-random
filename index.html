@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Dota 2 Random Hero Picker">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:title" content="Dota 2: Random hero ">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Dota 2 Random Hero Picker">
+<title>Dota 2: Random hero</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+	.navbar-inverse{background-color:#252a33}body{padding-top:70px;background-color:#1f232a;color:#fff}.content{text-align:left;margin-left:auto}h1{font-weight:700;font-size:32px}p{font-family:verdana,Times,Sans-serif;color:#bbb}
+	p {
+		text-align: center;
+		font-family: "Verdana", Times, Sans-serif;
+	}
+
+	#hero-wrapper {
+		margin-top: 10px;
+		display: none;
+	}
+
+	#hero-name {
+		font-size: 18px;
+		color: #FFFFFF;
+	}
+	</style>
+<script>
+		function displayHero() {
+			let herolist = ["Abaddon","Alchemist","Ancient Apparition","Anti-Mage","Arc Warden","Axe","Bane","Batrider","Beastmaster","Bloodseeker","Bounty Hunter","Brewmaster","Bristleback","Broodmother","Centaur Warrunner","Chaos Knight","Chen","Clinkz","Clockwerk","Crystal Maiden","Dark Seer","Dark Willow","Dawnbreaker","Dazzle","Death Prophet","Disruptor","Doom","Dragon Knight","Drow Ranger","Earth Spirit","Earthshaker","Elder Titan","Ember Spirit","Enchantress","Enigma","Faceless Void","Grimstroke","Gyrocopter","Hoodwink","Huskar","Invoker","Io","Jakiro","Juggernaut","Keeper of the Light","Kunkka","Legion Commander","Leshrac","Lich","Lifestealer","Lina","Lion","Lone Druid","Luna","Lycan","Magnus","Marci","Mars","Medusa","Meepo","Mirana","Monkey King","Morphling","Muerta","Naga Siren","Nature's Prophet","Necrophos","Night Stalker","Nyx Assassin","Ogre Magi","Omniknight","Oracle","Outworld Destroyer","Pangolier","Phantom Assassin","Phantom Lancer","Phoenix","Primal Beast","Puck","Pudge","Pugna","Queen of Pain","Razor","Riki","Rubick","Sand King","Shadow Demon","Shadow Fiend","Shadow Shaman","Silencer","Skywrath Mage","Slardar","Slark","Snapfire","Sniper","Spectre","Spirit Breaker","Storm Spirit","Sven","Techies","Templar Assassin","Terrorblade","Tidehunter","Timbersaw","Tinker","Tiny","Treant Protector","Troll Warlord","Tusk","Underlord","Undying","Ursa","Vengeful Spirit","Venomancer","Viper","Visage","Void Spirit","Warlock","Weaver","Windranger","Winter Wyvern","Witch Doctor","Wraith King","Zeus"];
+			let hero = herolist[Math.floor(Math.random() * herolist.length)]; // avoid Math.random?
+			let hero_temp = hero.toLowerCase().replace(/ /g,"_");
+			switch(hero_temp) {
+				case "anti-mage": hero_temp = "antimage"; break;
+				case "centaur_warrunner": hero_temp = "centaur"; break;
+				case "clockwerk": hero_temp = "rattletrap"; break;
+				case "doom": hero_temp = "doom_bringer"; break;
+				case "io": hero_temp = "wisp"; break;
+				case "lifestealer": hero_temp = "life_stealer"; break;
+				case "magnus": hero_temp = "magnataur"; break;
+				case "nature's_prophet": hero_temp = "furion"; break;
+				case "necrophos": hero_temp = "necrolyte"; break;
+				case "outworld_destroyer": hero_temp = "obsidian_destroyer"; break;
+				case "queen_of_pain": hero_temp = "queenofpain"; break;
+				case "shadow_fiend": hero_temp = "nevermore"; break;
+				case "timbersaw": hero_temp = "shredder"; break;
+				case "treant_protector": hero_temp = "treant"; break;
+				case "underlord": hero_temp = "abyssal_underlord"; break;
+				case "vengeful_spirit": hero_temp = "vengefulspirit"; break;
+				case "windranger": hero_temp = "windrunner"; break;
+				case "wraith_king": hero_temp = "skeleton_king"; break;
+				case "zeus": hero_temp = "zuus"; break;
+			}
+			$("#hero-img").attr("src", `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero_temp}.png`);
+			$("#hero-name").text(hero)
+			$('#hero-wrapper').show()
+			//alert(hero);
+		}
+	</script>
+<meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;1.11.1&quot;,&quot;Bootstrap&quot;:-1}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script></head>
+<body>
+<div class="container">
+<article id="welcome" style="text-align: center;">
+<h1>Dota 2 Random Hero Picker</h1>
+<p>Just press the button below to get a random hero!<br></p>
+<button type="button" class="btn btn-primary btn-lg" onclick="displayHero()">Random Hero</button><br>
+<div id="hero-wrapper">
+<img id="hero-img" src alt="Hero">
+<p id="hero-name"></p>
+</div>
+</article>
+</div>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+</body></html>
